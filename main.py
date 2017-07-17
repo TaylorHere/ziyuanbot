@@ -80,10 +80,8 @@ def search(bot, update, mode):
         else:
             print(query)
             filter_str = u"%" + query + u"%"
-            print(filter_str)
             records = Record.query.filter(
                 Record.keys.like(filter_str)).all()
-            print(records)
         for record in records:
             results.append(
                 InlineQueryResultArticle(
