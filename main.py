@@ -73,7 +73,7 @@ def search(bot, update, mode):
         results.append(InlineQueryResultArticle(
             id=uuid4(),
             title="找到以下结果",
-            input_message_content=InputTextMessageContent(f"我在使用@ziyuanbot搜索资源{query}")))
+            input_message_content=InputTextMessageContent("我在使用@ziyuanbot搜索资源%s" % s)))
 
         if query == ' ':
             records = Record.query.all()
@@ -89,7 +89,7 @@ def search(bot, update, mode):
                 InlineQueryResultArticle(
                     id=uuid4(),
                     title=record.keys or "no keys",
-                    input_message_content=InputTextMessageContent(f"我在@ziyuanbot找到了一条资源{record.url}")))
+                    input_message_content=InputTextMessageContent("我在@ziyuanbot找到了一条资源%s" % record.url)))
         update.inline_query.answer(results)
 
 
@@ -101,7 +101,7 @@ def add(bot, update, mode):
         query = update.inline_query.query
         results.append(InlineQueryResultArticle(id=uuid4(),
                                                 title="点击添加记录",
-                                                input_message_content=InputTextMessageContent(f"我向@ziyuanbot添加了一个资源{query}")))
+                                                input_message_content=InputTextMessageContent("我向@ziyuanbot添加了一个资源%s" % query)))
         update.inline_query.answer(results)
 
 
