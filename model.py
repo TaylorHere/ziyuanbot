@@ -20,8 +20,4 @@ class Record(Base):
         return self
 
     def __str__(self):
-        return f"""
-{self.id},
-{self.keys},
-{self.url},
-    """
+        return "%s%s%s" % (self.id, self.keys, self.url)
