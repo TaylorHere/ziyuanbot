@@ -73,7 +73,7 @@ def search(bot, update, mode):
         results.append(InlineQueryResultArticle(
             id=uuid4(),
             title="找到以下结果",
-            input_message_content=InputTextMessageContent("我在使用@ziyuanbot搜索资源%s" % s)))
+            input_message_content=InputTextMessageContent("我在使用@ziyuanbot搜索资源%s" % query)))
 
         if query == ' ':
             records = Record.query.all()
